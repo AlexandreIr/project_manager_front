@@ -18,12 +18,14 @@ a {
     background-color: aliceblue;
     padding: 1rem 2rem;
     display: grid;
-    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
     min-height: 5rem;
 }
+
 .headLine{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .logo {
