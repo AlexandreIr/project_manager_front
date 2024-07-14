@@ -1,12 +1,18 @@
 import styles from "../Login.module.css";
 import { useForm } from "react-hook-form";
+import {api} from '../api';
 
-function LoginPage(){
+function RegistrationForm(){
     
     const {register, handleSubmit} = useForm();
 
     const authenticate = (fields)=>{
         alert(JSON.stringify(fields));
+        document.querySelectorAll('input').forEach(comp=>{
+            if(comp.value!='Criar conta'){
+                comp.value='';
+            }
+        });
     }
 
     return(
@@ -21,12 +27,11 @@ function LoginPage(){
             <label htmlFor="password">Senha </label>
             <input type="password" id="password" {...register("password")} required className={styles.field}/>
             <br />
-            <input type="submit" value="Login" className={styles.btn}/>
-            <p>Esqueceu sua senha?</p>
-            <p>Ainda não tem cadastro? Clique aqui</p>
+            <input type="submit" value="Criar conta" className={styles.btn}/>
+            <p>Já tem conta? Clique aqui</p>
         </form>
         </div>
     )
 }
 
-export default LoginPage;
+export default RegistrationForm;

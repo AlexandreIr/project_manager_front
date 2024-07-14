@@ -22,12 +22,12 @@ function Navbar() {
                 <ul className={`${styles.navMenu} ${isActive ? styles.active : ''}`}>
                     <li onClick={removeActive}>
                         <a href='#home' className={`${styles.navLink}`}>
-                            <img src={avatar} className={`${styles.avatar}`} alt="React logo"/>
+                            <span className={styles.imageText}>Meu Perfil</span><img src={avatar} className={`${styles.avatar}`} alt="React logo"/>
                         </a>
                     </li>
                     <li>
                         <a href='#home' className={`${styles.navLink}`}>
-                            <img src={out} className={`${styles.avatar}`} alt="React logo"/>
+                           <span className={styles.imageText}>Logout</span> <img src={out} className={`${styles.avatar}`} alt="React logo"/>
                         </a>
                     </li>
                     

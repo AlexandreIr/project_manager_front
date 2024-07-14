@@ -10,12 +10,12 @@ ul {
 
 a {
     text-decoration: none;
-    color: black;
+    color: #ffffff;
     font-size: 20px;
 }
 
 .navbar {
-    background-color: aliceblue;
+    background-color: #e53939;
     padding: 1rem 2rem;
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
@@ -42,15 +42,24 @@ a {
     align-items: center;
     gap: 2rem;
 }
+.imageText{
+    display: none;
+}
 
 @media screen and (max-width: 780px){
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
     .hamburger {
         display: block;
         cursor: pointer;
     }
 
     .bar {
-        background-color: #120f0b;
+        background-color: #ffffff;
         width: 20px;
         height: 3px;
         display: block;
@@ -78,7 +87,7 @@ a {
         text-align: center;
         width: 100%;
         transition: 0.7s ease-in-out;
-        background-color: aliceblue;
+        background-color: #ffffff;
         padding: 10px;
     }
 
@@ -88,5 +97,9 @@ a {
 
     .navMenu li {
         margin: 16px 0;
+    }
+    .imageText{
+        color: black;
+        display: flex;
     }
 }

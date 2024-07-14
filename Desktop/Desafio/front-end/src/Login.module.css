@@ -21,11 +21,11 @@
     padding-left: .5rem;
 }
 .btn{
-    width: 100%;
+    width: 50%;
     height: 2rem;
     margin-top: 1rem;
     margin-bottom: .5rem;
     border: transparent;
     border-radius: 10px;
-    background-color: rgb(28, 180, 28);
+    background-color: #e53939;
 }

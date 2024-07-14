@@ -1,17 +1,13 @@
-import Navbar from './components/Navbar';
+import InitialPage from './pages/InitialPage';
 import LoginPage from './pages/LoginPage';
-import RegistrationPage from './pages/RegistrationPage';
 
 function App() {
-
   return (
     <>
-      <Navbar/>
-      <LoginPage/>   
-      <RegistrationPage/>
-      
+    {localStorage.getItem('token')&&<InitialPage/>}
+    <LoginPage/>
     </>
   )
 }
 
-export default App
+export default App;
