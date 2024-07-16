@@ -1,3 +1,4 @@
+import { api } from "../api";
 import styles from "../Login.module.css";
 import { useForm } from "react-hook-form";
 
@@ -5,8 +6,14 @@ function LoginForm(){
     
     const {register, handleSubmit} = useForm();
 
-    const authenticate = (fields)=>{
-        alert(JSON.stringify(fields));
+    const authenticate = async(fields)=>{
+        const response = await api.post('/auth', {
+            email:fields.email,
+            password:fields.password
+        });
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('loggedUser', response.data.user.id);
+        console.log(response);
     }
 
     return(
@@ -21,7 +28,7 @@ function LoginForm(){
             <br />
             <input type="submit" value="Login" className={styles.btn}/>
             <p>Esqueceu sua senha?</p>
-            <p>Ainda não tem cadastro? Clique aqui</p>
+            <p>Ainda não tem cadastro? <span>Clique aqui</span></p>
         </form>
         </div>
     )

@@ -1,5 +1,5 @@
 .loginForm{
-    width: 30rem;
+    width: 35rem;
     height: 20rem;
     border-radius: 10px;
     display: flex;
@@ -28,4 +28,7 @@
     border: transparent;
     border-radius: 10px;
     background-color: #e53939;
+}
+.notShow{
+    display: none;
 }

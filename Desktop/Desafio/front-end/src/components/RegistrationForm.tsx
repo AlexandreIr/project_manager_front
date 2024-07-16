@@ -6,8 +6,11 @@ function RegistrationForm(){
     
     const {register, handleSubmit} = useForm();
 
-    const authenticate = (fields)=>{
-        alert(JSON.stringify(fields));
+    const createUser = (fields)=>{
+        const user = JSON.stringify(fields);
+        api.post('user',{
+            user
+        });
         document.querySelectorAll('input').forEach(comp=>{
             if(comp.value!='Criar conta'){
                 comp.value='';
@@ -16,8 +19,8 @@ function RegistrationForm(){
     }
 
     return(
-        <div className={styles.loginForm}>
-        <form onSubmit={handleSubmit(authenticate)} className={styles.form}>
+        <div className={`${styles.loginForm} ${styles.notShow}`}>
+        <form onSubmit={handleSubmit(createUser)} className={styles.form}>
             <h2>Registro</h2>
             <label htmlFor="name">Nome </label>
             <input type="text" id="name" {...register("name")} autoFocus required className={styles.field} />

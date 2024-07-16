@@ -3,10 +3,9 @@ import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
-    <>
-    {localStorage.getItem('token')&&<InitialPage/>}
-    <LoginPage/>
-    </>
+    <div>
+      {localStorage.getItem('token')?<InitialPage/>:<LoginPage/>}
+    </div>
   )
 }
 
