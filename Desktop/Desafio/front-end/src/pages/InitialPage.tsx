@@ -2,25 +2,28 @@ import { useState } from "react";
 import { api } from "../api";
 import Navbar from "../components/Navbar"
 
+
 export default function InitialPage(){
-    const [val, setVal] = useState();
-    let projects;
+    const [val, setVal] = useState('');
+    const [projects, setProjects] = useState([]);
 
     async function getProjects (){
-        const response = await api.get('/projects');
-        projects = response.data;
-    }
-    getProjects();
+        const token = localStorage.getItem('token')
+        const response = await api.get('/projects', {
+                headers:{
+                'authorization': `token ${token}`
+            }
+        });
+        setProjects(response.data);
+        console.log(projects);
+    } 
+
 
     const handleChange = (e) =>{
         const {value} = e.target;
         setVal(value);
-        const filterProjects = val!=''?
-            projects.filter(project=>{
-                return project.title.toLowerCase() == val.toLowerCase()
-            })
-        :''
     }
+   
 
     return(
         <>
@@ -33,10 +36,11 @@ export default function InitialPage(){
             />
             <br /><br />
             <button>+ Criar novo projeto</button>
-            {projects&&projects.forEach(project=>(
+            {projects.length>0 && projects.map(project=>(
                 <div key={project.id}>
                     <h1>{project.title}</h1>
                     <p>{project.description}</p>
+                    <button>Excluir projeto</button>
                 </div>
             ))}
         </>
