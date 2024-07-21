@@ -8,6 +8,7 @@ import "../initialPage.css"
 export default function InitialPage(){
     const [val, setVal] = useState();
     const [projects, setProjects] = useState([]);
+    const [user, setUser] = useState();
     
     async function getProjects (){
         const token = localStorage.getItem('token')
@@ -18,6 +19,7 @@ export default function InitialPage(){
             }
         });
         setProjects(response.data.projects);
+        setUser(response.data.user);
         } catch(e){
             alert(`Erro inesperado ${e}`);
         }
@@ -25,39 +27,48 @@ export default function InitialPage(){
 
     useEffect(()=>{
         getProjects();
-    },[projects]);
+    },[]);
 
     const handleChange = (e) =>{
         const {value} = e.target;
         setVal(value);
+        projects.filter(p => p.title.toLowerCase()==val.toLowerCase());
     }
-   
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
+
 
     return(
         <>
-            <Navbar/>
+            <Navbar user={user?.name}/>
             <div className="container">
                 <div className="side-section">
-                    <h2>{val}</h2>
                     <input 
                         type="search" 
-                        placeholder="Pesquise um projeto"
+                        placeholder="Pesquise por um projeto"
                         onChange={handleChange}
                         className="search-input"
                     />
                     <br /><br />
                     <button>+ Criar projeto</button>
                 </div>
+                <br />
+                <h1>Meus Projetos</h1>
                 <div className="card-grid">
                     {projects.length>0 && projects.map(project=>(
                         <ProjectCard
-                            className="card"
                             key={project.id}
                             id={project.id}
                             title={project.title}
                             description={project.description}
                         />
                     ))}
+            <button className="sticky-btn" onClick={scrollToTop}>&#x21E7;</button>
             </div>
             </div>
         </>

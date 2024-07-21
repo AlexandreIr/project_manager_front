@@ -1,19 +1,31 @@
-import axios from 'axios';
 import '../initialPage.css'
+import { api } from '../api';
 
 const ProjectCard = (props)=>{
-    const excludeFn = () =>{
+
+    const excludeFn = async() =>{
+        const id = parseInt(props.id);
+        const token = localStorage.getItem('token');
         const confirmation = confirm(`Deseja realmente excluir o projeto ${props.title}`);
         if(confirmation){
-            axios.delete
+            try{
+                await api.delete(`/project/${id}`,{
+                    headers:{
+                        'Authorization': `token ${token}`
+                    }
+                });
+            } catch(e){
+                alert(`Erro inesperado ${e}`);
+            }
         }
     }
 
 
     return(
-        <div className={props.className}>
+        <div className='card'>
             <h2>{props.title}</h2>
-            <p>{props.description}</p>
+            <p className='description'>{props.description}</p>
+            <p>{props.id}</p>
             <button onClick={excludeFn}>Excluir projeto</button>
         </div>
     )

@@ -1,27 +1,36 @@
 .container{
     max-width: 1200px ;
     margin: auto;
-    display: flex;
+    display: grid;
     gap: 1rem;
     align-items: center;
     justify-content: center;
+    margin-top: 3rem;
 }
 .card-grid{
-    margin-top: 5rem;
-    display: flex;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
-    width: 100vw;
+    margin-bottom: 2rem;
 }
 .card{
     border: 2px solid #ffffff;
     border-radius: 10px;
-    max-width: 20rem;
-    min-width: 20rem;
+    width: 20rem;
+    min-width: 8rem;
+    max-height: 12rem;
+    min-height: 4rem;
     padding: 1rem;
     transition: .5s;
     position: relative;
     padding-bottom: 5rem;
-
+    cursor: pointer;
+}
+.description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .card:hover{
     transform: scale(1.05);
@@ -39,6 +48,10 @@
     box-shadow: 3px 3px #000000;
 
 }
+.side-section{
+    display: block;
+    width: 100%;
+}
 .side-section .search-input{
     width: 100%;
     height: 2rem;
@@ -54,4 +67,39 @@
     transform: scale(1.05);
     box-shadow: 3px 3px #ffffff;
 
+}
+.sticky-btn{
+    border-radius: 5px;
+    position:fixed;
+    right: 4rem;
+    bottom: 2rem;
+    transition: .5s;
+    opacity: 20%;
+    border: none;
+}
+.sticky-btn:hover{
+    transform: scale(1.05);
+    box-shadow: 3px 3px #ffffff;
+    opacity: 100%;
+}
+@media (max-width:1010px){
+    .container{
+        margin-left: 20px;
+        margin-right: 20px;
+        max-width: 800px;
+    }
+    .container h1{
+        text-align: center;
+    }
+    .card-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width:690px){
+    .card-grid{
+        grid-template-columns: 1fr;
+    }
+    .sticky-btn{
+        display: none;
+    }
 }
