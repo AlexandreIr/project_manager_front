@@ -2,6 +2,7 @@ import { useState } from 'react'
 import  styles from '../Navbar.module.css';
 import avatar from '../assets/avatar.png'
 import out from '../assets/sair.png'
+import { Link } from 'react-router-dom';
 
 
 function Navbar(props) {
@@ -19,7 +20,7 @@ function Navbar(props) {
         <header className="App-header">
         <nav className={`${styles.navbar}`}>
             <a href='#home' className={`${styles.navLink} ${styles.headLine}`}>{props.user}</a>
-            <a href='#home' className={`${styles.logo} ${styles.headLine}`}>Project Manager </a>
+            <Link to='/' className={`${styles.logo} ${styles.headLine}`}>Project Manager </Link>
                 <ul className={`${styles.navMenu} ${isActive ? styles.active : ''}`}>
                     <li onClick={removeActive}>
                         <a href='#home' className={`${styles.navLink}`}>

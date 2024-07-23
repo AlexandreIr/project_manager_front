@@ -3,6 +3,7 @@ import { api } from "../api";
 import Navbar from "../components/Navbar"
 import ProjectCard from "../components/ProjectCard";
 import "../initialPage.css"
+import { Link } from "react-router-dom";
 
 
 export default function InitialPage(){
@@ -55,18 +56,22 @@ export default function InitialPage(){
                         className="search-input"
                     />
                     <br /><br />
-                    <button>+ Criar projeto</button>
+                    <Link to={'/create'}>
+                        <button>+ Criar projeto</button>
+                    </Link>
                 </div>
                 <br />
                 <h1>Meus Projetos</h1>
                 <div className="card-grid">
                     {projects.length>0 && projects.map(project=>(
-                        <ProjectCard
-                            key={project.id}
-                            id={project.id}
-                            title={project.title}
-                            description={project.description}
-                        />
+                        // <Link to={`/project/${project.title}`}>
+                            <ProjectCard
+                                key={project.id}
+                                id={project.id}
+                                title={project.title}
+                                description={project.description}
+                            />
+                        // </Link>
                     ))}
             <button className="sticky-btn" onClick={scrollToTop}>&#x21E7;</button>
             </div>

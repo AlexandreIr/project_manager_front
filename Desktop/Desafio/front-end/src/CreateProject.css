@@ -1,0 +1,24 @@
+.form-box{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.form-box input{
+    height: 2rem;
+    width: 95vw;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+.form-box textarea {
+    resize: none;
+    height: 30vh;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+}

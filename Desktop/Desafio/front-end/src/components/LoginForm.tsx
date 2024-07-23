@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { api } from "../api";
 import styles from "../Login.module.css";
 import { useForm } from "react-hook-form";
@@ -13,7 +14,6 @@ function LoginForm(){
         });
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('loggedUser', response.data.user.id);
-        console.log(response);
     }
 
     return(
@@ -28,7 +28,7 @@ function LoginForm(){
             <br />
             <input type="submit" value="Login" className={styles.btn}/>
             <p>Esqueceu sua senha?</p>
-            <p>Ainda não tem cadastro? <span>Clique aqui</span></p>
+            <p>Ainda não tem cadastro? <Link to={'/registration'}>Clique aqui</Link></p>
         </form>
         </div>
     )

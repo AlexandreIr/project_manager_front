@@ -26,6 +26,7 @@
     position: relative;
     padding-bottom: 5rem;
     cursor: pointer;
+    cursor: pointer;
 }
 .description {
     overflow: hidden;
@@ -60,7 +61,8 @@
     border: 1px solid #ffffff;
 }
 .side-section button{
-    width: 10rem;
+    width: 12rem;
+    height: auto;
     transition: .5s;
 }
 .side-section button:hover{
