@@ -25,7 +25,6 @@ const ProjectCard = (props)=>{
         <div className='card'>
             <h2>{props.title}</h2>
             <p className='description'>{props.description}</p>
-            <p>{props.id}</p>
             <button onClick={excludeFn}>Excluir projeto</button>
         </div>
     )

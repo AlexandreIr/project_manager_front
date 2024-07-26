@@ -1,0 +1,53 @@
+.project-container{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    gap: 2rem;
+    margin-left: 1rem;
+    width: 95vw;
+    align-items: center;
+}
+.info-section{
+    border: 3px solid #ffffff;
+    border-radius: 20px;
+    margin-top: 1rem;
+    height: 80vh;
+    text-align: center;
+    padding: 1rem 2rem;
+    overflow: auto;
+}
+.info-section h2 {
+    margin-bottom: 1rem;
+}
+
+.main-section{
+    border-radius: 20px;
+    margin-top: 2rem;
+    height: 80vh;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 1rem;
+    overflow: auto;
+}
+.to-do, .doing, .done{
+    text-align: center;
+    border: 3px solid #ffffff;
+    border-radius: 1rem;
+    width: 33%;
+    overflow: auto;
+    cursor: pointer;
+}
+.btn-task{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.tasks{
+    margin-top: 1rem;
+}
+.task-input{
+    width: 90%;
+    border: none;
+    border-radius: .5rem;
+    margin-bottom: .8rem;
+    padding: .5rem;
+}

@@ -25,8 +25,13 @@
     transition: .5s;
     position: relative;
     padding-bottom: 5rem;
+    font-size: medium;
     cursor: pointer;
-    cursor: pointer;
+}
+.card h2{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .description {
     overflow: hidden;
@@ -63,6 +68,7 @@
 .side-section button{
     width: 12rem;
     height: auto;
+    font-size:medium;
     transition: .5s;
 }
 .side-section button:hover{
